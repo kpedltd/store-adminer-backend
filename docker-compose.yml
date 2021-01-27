@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  db:
+    build: ./db
+    restart: always
+    ports:
+     - 5432:5432
+    volumes:
+     - dbdata:/var/lib/postgresql/data
+    networks:
+     - postgresql
+    container_name: postgres
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+     - db
+    networks:
+     - postgresql
+    container_name: adminer
+
+volumes:
+  dbdata:
+    
+networks:
+  postgresql:
+      driver: bridge

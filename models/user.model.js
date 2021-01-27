@@ -37,7 +37,7 @@ module.exports = (sequelize, Sequelize) => {
   }, {
     setterMethods: {
       password: function (value) {
-        this.passwordHash = value;//bCrypt.hashSync(value, bCrypt.genSaltSync(8));
+        this.passwordHash = bCrypt.hashSync(value, bCrypt.genSaltSync(8));
       }
     }
   });

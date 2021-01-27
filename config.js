@@ -3,9 +3,9 @@ module.exports = {
   jwtSession: {
     session: false
   },
-  host: 'localhost',
-  user: 'postgres',
+  host: 'host',
+  user: 'user',
   password: 'password',
-  db: 'postgres',
+  db: 'db',
   dialect: 'postgres',
 };

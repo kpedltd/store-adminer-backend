@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  db_container:
+  db:
     build: ./db
     restart: always
     ports:
@@ -11,7 +11,7 @@ services:
      - dbdata:/var/lib/postgresql/data
     networks:
      - postgresql
-    container_name: db_container
+    container_name: postgres
 
   adminer:
     image: adminer
@@ -19,7 +19,7 @@ services:
     ports:
       - 8080:8080
     depends_on:
-     - db_container
+     - db
     networks:
      - postgresql
     container_name: adminer

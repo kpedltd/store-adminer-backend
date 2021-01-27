@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const db = require('./models');
+const sequelize = db.sequelize;
 
 process.env['NODE_ENV'] = 'development';
 
@@ -24,6 +26,19 @@ app.use(orderRoute);
 
 app.use(errorHandler);
 
-app.listen(3000, function () {
-  console.log('Server is running on port 3000');
-});
+sequelize.authenticate().
+  then(() => {
+    sequelize
+      .sync({ force: false })
+      .then(() => {
+        app.listen(3000, function () {
+          console.log('Server is running on port 3000');
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  })
+  .catch((err) => {
+    console.error(err);
+  });

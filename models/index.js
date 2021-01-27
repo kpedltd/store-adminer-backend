@@ -22,10 +22,6 @@ db.price = require('./price.model')(sequelize, Sequelize);
 db.order = require('./order.model')(sequelize, Sequelize);
 db.orderGood = require('./order-good.model')(sequelize, Sequelize);
 
-Object.keys(db).forEach(async (model) => {
-  await db[model].sync();
-});
-
 db.refreshToken.associate(db);
 db.good.associate(db);
 db.price.associate(db);

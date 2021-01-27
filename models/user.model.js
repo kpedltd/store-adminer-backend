@@ -1,4 +1,4 @@
-const bCrypt = require('bcrypt');
+//const bCrypt = require('bcrypt');
 
 module.exports = (sequelize, Sequelize) => {
   const User = sequelize.define('user', {
@@ -37,7 +37,7 @@ module.exports = (sequelize, Sequelize) => {
   }, {
     setterMethods: {
       password: function (value) {
-        this.passwordHash = bCrypt.hashSync(value, bCrypt.genSaltSync(8));
+        this.passwordHash = value;//bCrypt.hashSync(value, bCrypt.genSaltSync(8));
       }
     }
   });

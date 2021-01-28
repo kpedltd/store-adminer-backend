@@ -24,6 +24,7 @@ module.exports = (sequelize, Sequelize) => {
     db.order.hasMany(OrderGood, { foreignKey: 'orderId' });
     db.good.hasMany(OrderGood, { foreignKey: 'goodId' });
     db.price.hasMany(OrderGood, { foreignKey: 'priceId' });
+    OrderGood.belongsTo(db.good, { foreignKey: 'goodId' });
   };
 
   return OrderGood;

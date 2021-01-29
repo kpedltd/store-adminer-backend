@@ -12,7 +12,7 @@ const authRoute = require('./routes/authRoute');
 const userRoute = require('./routes/userRoute');
 const goodRoute = require('./routes/goodRoute');
 const orderRoute = require('./routes/orderRoute');
-const databaseRoute = require('./routes/databaseRoute');
+const statisticsRoute = require('./routes/statisticsRoute');
 const errorHandler = require('./middleware/errorHandler');
 
 app.use(bodyParser.json());
@@ -24,7 +24,7 @@ app.use(authRoute);
 app.use(userRoute);
 app.use(goodRoute);
 app.use(orderRoute);
-app.use(databaseRoute);
+app.use(statisticsRoute);
 
 app.use(errorHandler);
 

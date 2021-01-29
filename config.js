@@ -1,11 +1,11 @@
 module.exports = {
-  jwtSecret: 'secret',
+  jwtSecret: 'FFV5dMtpD9cHqJ5fjn3HGAFEjrTHbqAL',
   jwtSession: {
     session: false
   },
-  host: 'host',
-  user: 'user',
-  password: 'password',
-  db: 'db',
+  host: 'db',
+  user: 'postgres',
+  password: 'Epu87cbVE6U4zxcT',
+  db: 'postgres',
   dialect: 'postgres',
 };

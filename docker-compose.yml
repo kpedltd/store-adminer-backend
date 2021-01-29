@@ -10,7 +10,7 @@ services:
     volumes:
      - dbdata:/var/lib/postgresql/data
     networks:
-     - postgresql
+     - store
     container_name: postgres
 
   adminer:
@@ -21,12 +21,23 @@ services:
     depends_on:
      - db
     networks:
-     - postgresql
+     - store
     container_name: adminer
+  
+  server:
+    build: .
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    networks:
+      - store
+    container_name: server
 
 volumes:
   dbdata:
     
 networks:
-  postgresql:
+  store:
       driver: bridge

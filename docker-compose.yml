@@ -5,8 +5,8 @@ services:
   db:
     build: ./db
     restart: always
-    ports:
-     - 5432:5432
+    expose:
+     - 5432
     volumes:
      - dbdata:/var/lib/postgresql/data
     networks:
@@ -16,8 +16,8 @@ services:
   adminer:
     image: adminer
     restart: always
-    expose:
-      - 8080
+    ports:
+      - 8080:8080
     depends_on:
      - db
     networks:
